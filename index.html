@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Circuitry – Share and discover tech inventions</title>
+  <meta name="description" content="Circuitry is a community where people share tech inventions, get feedback and find collaborators.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html"><img src="images/logo.svg" alt="" width="40" height="40"><span>Circuitry</span></a>
+      <nav class="main-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="explore.html">Explore</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="community.html#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="explore.html#search">Search</a>
+        <a class="btn btn-primary" href="submit.html">+ Submit Idea</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+
+    <!-- HERO: Featured invention of the day -->
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Featured invention of the day</p>
+      <div class="hero-grid">
+        <img src="images/neuralgrip.svg" alt="Illustration of a bionic hand with a circuit node on each fingertip" width="400" height="240">
+        <div>
+          <h1 id="hero-title">NeuralGrip: Bionic Hand with Tactile Feedback</h1>
+          <p class="byline">By Dr. Elena Rostova</p>
+          <p><span class="badge">Stage: Working Prototype</span></p>
+          <p>A low-cost prosthetic hand with pressure sensors in each fingertip, so the wearer can feel how hard they are gripping an object.</p>
+          <div class="card-actions">
+            <button type="button" class="btn btn-outline" data-act="up" data-id="1" aria-pressed="false">&#9650; Upvote <span class="count">1,400</span></button>
+            <a class="btn btn-outline" href="community.html#feedback">182 comments</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORY QUICK-FILTERS -->
+    <section class="section" aria-labelledby="cat-title" style="margin-top:0">
+      <h2 id="cat-title" class="sr-only">Filter inventions by category</h2>
+      <div class="chip-row" id="chips">
+        <button type="button" class="chip" data-cat="all" aria-pressed="true">All</button>
+        <button type="button" class="chip" data-cat="robotics" aria-pressed="false">Robotics</button>
+        <button type="button" class="chip" data-cat="ai" aria-pressed="false">AI &amp; ML</button>
+        <button type="button" class="chip" data-cat="hardware" aria-pressed="false">Hardware</button>
+        <button type="button" class="chip" data-cat="biotech" aria-pressed="false">Biotech</button>
+        <button type="button" class="chip" data-cat="clean" aria-pressed="false">Clean Tech</button>
+        <button type="button" class="chip" data-cat="software" aria-pressed="false">Software</button>
+      </div>
+    </section>
+
+    <!-- MAIN FEED -->
+    <section class="section" aria-labelledby="feed-title" style="margin-top:24px">
+      <h2 id="feed-title">Inventions</h2>
+      <div class="tabs" role="tablist" aria-label="Feed type">
+        <button type="button" class="tab" role="tab" id="tab-trending" data-tab="trending" aria-selected="true" aria-controls="feed">Trending</button>
+        <button type="button" class="tab" role="tab" id="tab-newest" data-tab="newest" aria-selected="false" aria-controls="feed" tabindex="-1">Newest</button>
+        <button type="button" class="tab" role="tab" id="tab-seeking" data-tab="seeking" aria-selected="false" aria-controls="feed" tabindex="-1">Seeking collaborators</button>
+      </div>
+      <div id="feed" class="grid" role="tabpanel" aria-labelledby="tab-trending" aria-live="polite"></div>
+      <div class="load-more"><button type="button" class="btn btn-outline" id="loadMore">Load more inventions</button></div>
+    </section>
+
+    <!-- QUICK POST CTA -->
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div>
+        <h2 id="cta-title">Got an idea of your own?</h2>
+        <p>Post a concept or a working prototype in a couple of minutes and get feedback from the community.</p>
+      </div>
+      <a class="btn btn-primary" href="submit.html">+ Submit your idea</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="community.html#about">About Circuitry</a></li>
+        <li><a href="community.html#ip">IP Guidelines</a></li>
+        <li><a href="community.html#rules">Community Rules</a></li>
+        <li><a href="community.html#contact">Contact</a></li>
+      </ul>
+      <p>&copy; 2026 Circuitry. A school project: all inventions and people shown are examples.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ----- Sample data (example inventions) -----
+    const INVENTIONS = [
+      { id: 1, title: "NeuralGrip: Bionic Hand with Tactile Feedback", cat: "robotics", catLabel: "Robotics", stageLabel: "Working Prototype", author: "Dr. Elena Rostova", upvotes: 1400, comments: 182, age: 2, seeking: false, img: "neuralgrip.svg", alt: "Illustration of a bionic hand" },
+      { id: 2, title: "SolarSkin: Transparent Photovoltaic Film", cat: "clean", catLabel: "Clean Tech", stageLabel: "Patent Pending", author: "@green_tech_dev", upvotes: 342, comments: 45, age: 9, seeking: false, img: "solarskin.svg", alt: "Illustration of a transparent solar panel under the sun" },
+      { id: 3, title: "OpenVision AI: Wearable Spatial Navigation", cat: "ai", catLabel: "AI & Hardware", stageLabel: "Concept Phase", author: "@alex_maker", upvotes: 512, comments: 89, age: 5, seeking: true, img: "openvision.svg", alt: "Illustration of smart glasses scanning the space ahead" },
+      { id: 4, title: "QuantumKey: Open-Source Encryption", cat: "software", catLabel: "Cybersecurity", stageLabel: "Software Beta", author: "@cipher_lab", upvotes: 890, comments: 120, age: 14, seeking: false, img: "quantumkey.svg", alt: "Illustration of an encryption key made of bits" },
+      { id: 5, title: "AquaLoop: Home Greywater Recycler", cat: "clean", catLabel: "Clean Tech", stageLabel: "Prototype", author: "@water_wise", upvotes: 276, comments: 31, age: 1, seeking: true, img: "aqualoop.svg", alt: "Illustration of a water droplet with a recycling loop" },
+      { id: 6, title: "MediScan Lite: Pocket Blood-Test Reader", cat: "biotech", catLabel: "Biotech", stageLabel: "Concept Phase", author: "@bio_nina", upvotes: 198, comments: 27, age: 3, seeking: true, img: "mediscan.svg", alt: "Illustration of a handheld blood test reader" },
+      { id: 7, title: "FarmBot Mini: Desktop Seed Planter", cat: "robotics", catLabel: "Robotics", stageLabel: "Prototype", author: "@field_lab", upvotes: 231, comments: 36, age: 6, seeking: true, img: "farmbot.svg", alt: "Illustration of a seedling with a small gear" },
+      { id: 8, title: "PulseBoard: Open Hardware Dev Board", cat: "hardware", catLabel: "Hardware", stageLabel: "Patent Pending", author: "@chip_sam", upvotes: 305, comments: 52, age: 11, seeking: false, img: "pulseboard.svg", alt: "Illustration of a microcontroller board with pins" }
+    ];
+
+    // ----- Small helpers (localStorage may be blocked, so wrap in try/catch) -----
+    const store = {
+      get(k) { try { return JSON.parse(localStorage.getItem(k)) || []; } catch (e) { return []; } },
+      set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } }
+    };
+    const fmt = n => n.toLocaleString("en-US");
+    let upvoted = store.get("circuitry-upvotes");
+    let saved = store.get("circuitry-saved");
+
+    const state = { tab: "trending", cat: "all", shown: 3 };
+    const feed = document.getElementById("feed");
+    const loadMore = document.getElementById("loadMore");
+
+    function cardHTML(i) {
+      return `
+        <article class="card">
+          <img src="images/${i.img}" alt="${i.alt}" width="400" height="240" loading="lazy">
+          <div class="card-body">
+            <h3>${i.title}</h3>
+            <div class="badges">
+              <span class="badge">${i.stageLabel}</span>
+              <span class="badge cat">${i.catLabel}</span>
+              ${i.seeking ? '<span class="badge seek">Seeking collaborators</span>' : ""}
+            </div>
+            <p class="meta">By ${i.author}</p>
+            <div class="card-actions">
+              <button type="button" class="btn btn-outline" data-act="up" data-id="${i.id}" aria-pressed="false">&#9650; Upvote <span class="count">${fmt(i.upvotes)}</span></button>
+              <a class="btn btn-outline" href="community.html#feedback">${i.comments} comments</a>
+              <button type="button" class="btn btn-outline" data-act="save" data-id="${i.id}" aria-pressed="false"><span class="label">Save</span></button>
+            </div>
+          </div>
+        </article>`;
+    }
+
+    function currentList() {
+      let list = INVENTIONS.filter(i => i.id !== 1);              // id 1 is the featured hero
+      if (state.cat !== "all") list = list.filter(i => i.cat === state.cat);
+      if (state.tab === "trending") list.sort((a, b) => b.upvotes - a.upvotes);
+      if (state.tab === "newest") list.sort((a, b) => a.age - b.age);
+      if (state.tab === "seeking") list = list.filter(i => i.seeking).sort((a, b) => b.upvotes - a.upvotes);
+      return list;
+    }
+
+    function renderFeed() {
+      const list = currentList();
+      feed.innerHTML = list.length
+        ? list.slice(0, state.shown).map(cardHTML).join("")
+        : '<p class="empty">No inventions match this filter yet. Try another category or tab.</p>';
+      loadMore.hidden = state.shown >= list.length;
+      updateButtons();
+    }
+
+    // Keeps every Upvote / Save button in sync with what the visitor has chosen
+    function updateButtons() {
+      document.querySelectorAll("button[data-act]").forEach(b => {
+        const id = Number(b.dataset.id);
+        const inv = INVENTIONS.find(i => i.id === id);
+        if (b.dataset.act === "up") {
+          const on = upvoted.includes(id);
+          b.setAttribute("aria-pressed", on);
+          b.classList.toggle("on", on);
+          b.querySelector(".count").textContent = fmt(inv.upvotes + (on ? 1 : 0));
+        } else {
+          const on = saved.includes(id);
+          b.setAttribute("aria-pressed", on);
+          b.classList.toggle("on", on);
+          b.querySelector(".label").textContent = on ? "Saved" : "Save";
+        }
+      });
+    }
+
+    // Upvote and Save clicks (works for the hero and the feed cards)
+    document.addEventListener("click", e => {
+      const b = e.target.closest("button[data-act]");
+      if (!b) return;
+      const id = Number(b.dataset.id);
+      const isUp = b.dataset.act === "up";
+      const list = isUp ? upvoted : saved;
+      const at = list.indexOf(id);
+      if (at === -1) list.push(id); else list.splice(at, 1);
+      store.set(isUp ? "circuitry-upvotes" : "circuitry-saved", list);
+      updateButtons();
+    });
+
+    // Category chips
+    document.getElementById("chips").addEventListener("click", e => {
+      const chip = e.target.closest(".chip");
+      if (!chip) return;
+      document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === chip));
+      state.cat = chip.dataset.cat;
+      state.shown = 3;
+      renderFeed();
+    });
+
+    // Tabs (click, or use the arrow keys)
+    const tabs = Array.from(document.querySelectorAll(".tab"));
+    function selectTab(tab) {
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.setAttribute("aria-selected", on);
+        t.tabIndex = on ? 0 : -1;
+      });
+      feed.setAttribute("aria-labelledby", tab.id);
+      state.tab = tab.dataset.tab;
+      state.shown = 3;
+      renderFeed();
+    }
+    tabs.forEach((t, i) => {
+      t.addEventListener("click", () => selectTab(t));
+      t.addEventListener("keydown", e => {
+        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+        const next = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+        selectTab(next);
+        next.focus();
+      });
+    });
+
+    loadMore.addEventListener("click", () => { state.shown += 3; renderFeed(); });
+
+    renderFeed();
+  </script>
+</body>
+</html>

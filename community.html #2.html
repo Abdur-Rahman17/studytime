@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Community and collaborations – Circuitry</title>
+  <meta name="description" content="Give feedback, brainstorm ideas and find co-founders or developers on Circuitry.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html"><img src="images/logo.svg" alt="" width="40" height="40"><span>Circuitry</span></a>
+      <nav class="main-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explore.html">Explore</a></li>
+          <li><a href="community.html" aria-current="page">Community</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="explore.html#search">Search</a>
+        <a class="btn btn-primary" href="submit.html">+ Submit Idea</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <div class="page-head">
+      <h1>Community &amp; Discussions</h1>
+      <p>Get feedback on your ideas, join a brainstorm, or team up with someone who has the skills your project needs.</p>
+    </div>
+
+    <!-- FEEDBACK & BRAINSTORMING HUB -->
+    <section class="section" id="feedback" aria-labelledby="feedback-title" style="scroll-margin-top:90px">
+      <h2 id="feedback-title">Feedback &amp; Brainstorming Hub</h2>
+      <div class="two-col">
+        <div class="panel">
+          <div class="chip-row" id="threadChips" style="margin-bottom:12px">
+            <button type="button" class="chip" data-tag="All" aria-pressed="true">All</button>
+            <button type="button" class="chip" data-tag="Feedback" aria-pressed="false">Feedback</button>
+            <button type="button" class="chip" data-tag="Brainstorm" aria-pressed="false">Brainstorm</button>
+            <button type="button" class="chip" data-tag="IP &amp; Patents" aria-pressed="false">IP &amp; Patents</button>
+          </div>
+          <div id="threads" aria-live="polite"></div>
+        </div>
+
+        <form class="panel" id="threadForm" novalidate>
+          <h2>Start a discussion</h2>
+          <div class="field">
+            <label for="threadTitle">Topic *</label>
+            <input type="text" id="threadTitle" maxlength="100" autocomplete="off" aria-describedby="threadTitle-err">
+            <p class="error" id="threadTitle-err"></p>
+          </div>
+          <div class="field">
+            <label for="threadTag">Type</label>
+            <select id="threadTag">
+              <option>Feedback</option>
+              <option>Brainstorm</option>
+              <option>IP &amp; Patents</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Post discussion</button>
+          <p id="threadMsg" class="hint" role="status" style="margin-top:10px"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- OPEN COLLABORATIONS -->
+    <section class="section" id="collaborations" aria-labelledby="collab-title" style="scroll-margin-top:90px">
+      <h2 id="collab-title">Open Collaborations</h2>
+      <p class="meta" style="margin-top:0">Projects looking for co-founders and developers.</p>
+      <div class="roles" id="roles"></div>
+    </section>
+
+    <!-- ABOUT, GUIDES AND CONTACT -->
+    <section class="section" id="about" aria-labelledby="about-title" style="scroll-margin-top:90px">
+      <h2 id="about-title">About Circuitry</h2>
+      <p style="max-width:720px">Circuitry is a place for inventors to share ideas, get honest feedback and find the people who can help build them. Whether you have a sketch on paper or a working prototype, you can post it here.</p>
+      <div class="steps" style="margin-bottom:24px">
+        <div class="step"><h3>Share</h3><p>Post a concept or a working prototype with a short description.</p></div>
+        <div class="step"><h3>Discuss</h3><p>Get feedback, upvotes and ideas from the community.</p></div>
+        <div class="step"><h3>Collaborate</h3><p>Find co-founders and developers to take it further.</p></div>
+      </div>
+
+      <div class="info-block" id="ip">
+        <h3>Intellectual Property (IP) &amp; Patent Guide</h3>
+        <ul>
+          <li>Your ideas belong to you. Posting on Circuitry does not transfer any rights.</li>
+          <li>A public post can count as public disclosure, which may affect a later patent application. Talk to an IP adviser first if you plan to patent.</li>
+          <li>Share the idea, but keep sensitive technical details private until you are protected.</li>
+          <li>Always credit people whose work you build on.</li>
+        </ul>
+      </div>
+
+      <div class="info-block" id="rules">
+        <h3>Guidelines &amp; Submission Rules</h3>
+        <ul>
+          <li>Post your own work, or say clearly whose work it is.</li>
+          <li>Pick the correct category and stage.</li>
+          <li>Give feedback that is kind, specific and useful.</li>
+          <li>No spam, adverts or unsafe instructions.</li>
+        </ul>
+      </div>
+
+      <div class="info-block" id="contact">
+        <h3>Contact</h3>
+        <p style="margin:0">Questions or feedback about Circuitry? Email <a href="mailto:hello@circuitry.example">hello@circuitry.example</a>. (This is an example address for a school project.)</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="#about">About Circuitry</a></li>
+        <li><a href="#ip">IP Guidelines</a></li>
+        <li><a href="#rules">Community Rules</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p>&copy; 2026 Circuitry. A school project: all people and posts shown are examples.</p>
+    </div>
+  </footer>
+
+  <script>
+    const store = {
+      get(k) { try { return JSON.parse(localStorage.getItem(k)) || []; } catch (e) { return []; } },
+      set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } }
+    };
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+    // ----- Discussions -----
+    const threads = [
+      { title: "Feedback wanted: would you use an open-source key manager?", author: "@cipher_lab", tag: "Feedback", replies: 23 },
+      { title: "Brainstorm: ways to make transparent solar film cheaper", author: "@green_tech_dev", tag: "Brainstorm", replies: 31 },
+      { title: "How do I protect an idea before posting it publicly?", author: "@maya_ip", tag: "IP & Patents", replies: 14 },
+      { title: "Best low-cost pressure sensors for a prosthetic prototype?", author: "@alex_maker", tag: "Feedback", replies: 9 },
+      { title: "Brainstorm: what should a beginner robotics kit include?", author: "@field_lab", tag: "Brainstorm", replies: 18 }
+    ];
+    const savedThreads = store.get("circuitry-threads");
+    savedThreads.forEach(t => threads.unshift(t));
+
+    let activeTag = "All";
+    const threadBox = document.getElementById("threads");
+
+    function renderThreads() {
+      const list = threads.filter(t => activeTag === "All" || t.tag === activeTag);
+      threadBox.innerHTML = list.length
+        ? list.map(t => `
+            <div class="thread">
+              <div>
+                <h3>${esc(t.title)}</h3>
+                <p class="meta" style="margin:0">${esc(t.author)} &middot; <span class="badge cat">${esc(t.tag)}</span></p>
+              </div>
+              <span class="replies">${t.replies} ${t.replies === 1 ? "reply" : "replies"}</span>
+            </div>`).join("")
+        : '<p class="empty">No discussions here yet. Be the first to start one!</p>';
+    }
+
+    document.getElementById("threadChips").addEventListener("click", e => {
+      const chip = e.target.closest(".chip");
+      if (!chip) return;
+      document.querySelectorAll("#threadChips .chip").forEach(c => c.setAttribute("aria-pressed", c === chip));
+      activeTag = chip.textContent.trim();
+      renderThreads();
+    });
+
+    document.getElementById("threadForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const input = document.getElementById("threadTitle");
+      const err = document.getElementById("threadTitle-err");
+      const title = input.value.trim();
+      if (title.length < 8) {
+        err.textContent = "Please write a topic of at least 8 characters.";
+        input.classList.add("invalid");
+        input.setAttribute("aria-invalid", "true");
+        input.focus();
+        return;
+      }
+      err.textContent = "";
+      input.classList.remove("invalid");
+      input.setAttribute("aria-invalid", "false");
+      const tag = document.getElementById("threadTag").value.replace("&amp;", "&");
+      const thread = { title, author: "@you", tag, replies: 0 };
+      threads.unshift(thread);
+      const mine = store.get("circuitry-threads");
+      mine.unshift(thread);
+      store.set("circuitry-threads", mine);
+      input.value = "";
+      activeTag = "All";
+      document.querySelectorAll("#threadChips .chip").forEach(c => c.setAttribute("aria-pressed", c.textContent.trim() === "All"));
+      renderThreads();
+      document.getElementById("threadMsg").textContent = "Your discussion was posted at the top of the list.";
+    });
+
+    // ----- Open collaborations -----
+    const openings = [
+      { id: "r1", project: "OpenVision AI", role: "Computer vision developer", skills: "Python, on-device machine learning", type: "Developer" },
+      { id: "r2", project: "AquaLoop", role: "Mechanical engineer", skills: "Pumps, filtration, CAD", type: "Co-founder" },
+      { id: "r3", project: "MediScan Lite", role: "Biotech co-founder", skills: "Lab testing, medical regulations", type: "Co-founder" },
+      { id: "r4", project: "FarmBot Mini", role: "Embedded firmware developer", skills: "C/C++, motor control", type: "Developer" }
+    ];
+    const requested = store.get("circuitry-requests");
+    const rolesBox = document.getElementById("roles");
+
+    function renderRoles() {
+      rolesBox.innerHTML = openings.map(o => {
+        const sent = requested.includes(o.id);
+        return `
+          <article class="role">
+            <span class="badge seek" style="align-self:flex-start">${o.type}</span>
+            <h3>${o.role}</h3>
+            <p class="meta">Project: ${o.project}</p>
+            <p>Skills: ${o.skills}</p>
+            <button type="button" class="btn ${sent ? "btn-outline on" : "btn-dark"}" data-id="${o.id}" aria-pressed="${sent}">${sent ? "Request sent (tap to cancel)" : "Request to join"}</button>
+          </article>`;
+      }).join("");
+    }
+    rolesBox.addEventListener("click", e => {
+      const b = e.target.closest("button[data-id]");
+      if (!b) return;
+      const at = requested.indexOf(b.dataset.id);
+      if (at === -1) requested.push(b.dataset.id); else requested.splice(at, 1);
+      store.set("circuitry-requests", requested);
+      renderRoles();
+      const again = rolesBox.querySelector(`button[data-id="${b.dataset.id}"]`);
+      if (again) again.focus();
+    });
+
+    renderThreads();
+    renderRoles();
+  </script>
+</body>
+</html>

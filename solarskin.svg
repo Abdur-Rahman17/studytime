@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-label="Transparent solar film panel under the sun">
+<rect width="400" height="240" fill="#0F5C4D"/>
+<circle cx="320" cy="60" r="30" fill="#FACC15"/>
+<g stroke="#FACC15" stroke-width="5" stroke-linecap="round"><path d="M320 14V4M320 106v10M274 60h-10M366 60h10M288 28l-7-7M352 92l7 7M352 28l7-7M288 92l-7 7"/></g>
+<polygon points="70,190 270,190 320,110 120,110" fill="#fff" fill-opacity=".18" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>
+<g stroke="#fff" stroke-width="2.5" opacity=".8"><path d="M137 190 L187 110 M203 190 L253 110 M95 150 H295"/></g>
+</svg>

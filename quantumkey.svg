@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-label="Encryption key made of bits">
+<rect width="400" height="240" fill="#1D3557"/>
+<g fill="none" stroke="#FACC15" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><circle cx="130" cy="120" r="42"/><path d="M172 120 H320 M290 120 V158 M250 120 V150"/></g>
+<circle cx="130" cy="120" r="12" fill="#fff"/>
+<g fill="#fff" opacity=".65"><rect x="40" y="30" width="14" height="14"/><rect x="62" y="30" width="14" height="14"/><rect x="84" y="52" width="14" height="14"/><rect x="300" y="190" width="14" height="14"/><rect x="322" y="190" width="14" height="14"/><rect x="344" y="208" width="14" height="14"/></g>
+</svg>

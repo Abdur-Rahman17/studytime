@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-label="Bionic hand with circuit nodes on each fingertip">
+<rect width="400" height="240" fill="#14284B"/>
+<path d="M20 210 H90 L112 188 H150 M380 40 H320 L298 62 H262" fill="none" stroke="#3B82F6" stroke-width="3" opacity=".7"/>
+<circle cx="20" cy="210" r="5" fill="#3B82F6"/><circle cx="380" cy="40" r="5" fill="#3B82F6"/>
+<g fill="none" stroke="#FACC15" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+<rect x="150" y="122" width="108" height="86" rx="22"/>
+<path d="M170 122 V66 M194 122 V48 M218 122 V44 M242 122 V60 M150 156 L116 122"/>
+</g>
+<g fill="#fff"><circle cx="170" cy="66" r="7"/><circle cx="194" cy="48" r="7"/><circle cx="218" cy="44" r="7"/><circle cx="242" cy="60" r="7"/><circle cx="116" cy="122" r="7"/></g>
+<g fill="none" stroke="#fff" stroke-width="3" opacity=".6"><path d="M280 100 q16 20 0 40"/><path d="M296 90 q26 30 0 60"/></g>
+</svg>

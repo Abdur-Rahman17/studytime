@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore inventions – Circuitry</title>
+  <meta name="description" content="Browse Circuitry inventions by category and stage, or search for a specific idea.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html"><img src="images/logo.svg" alt="" width="40" height="40"><span>Circuitry</span></a>
+      <nav class="main-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explore.html" aria-current="page">Explore</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="community.html#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="#search">Search</a>
+        <a class="btn btn-primary" href="submit.html">+ Submit Idea</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <div class="page-head">
+      <h1>Explore &amp; Discover</h1>
+      <p>Browse inventions by category or stage, or search for something specific.</p>
+    </div>
+
+    <!-- Search and filters -->
+    <form class="toolbar" id="filters" role="search" aria-label="Search and filter inventions" onsubmit="return false">
+      <div>
+        <label for="search">Search</label>
+        <input type="search" id="search" placeholder="Try &ldquo;solar&rdquo; or &ldquo;robot&rdquo;" autocomplete="off">
+      </div>
+      <div>
+        <label for="category">Category</label>
+        <select id="category">
+          <option value="all">All categories</option>
+          <option value="ai">AI</option>
+          <option value="robotics">Robotics</option>
+          <option value="hardware">Hardware</option>
+          <option value="biotech">Biotech</option>
+          <option value="clean">Clean Tech</option>
+          <option value="software">Software</option>
+        </select>
+      </div>
+      <div>
+        <label for="stage">Stage</label>
+        <select id="stage">
+          <option value="all">All stages</option>
+          <option value="Concept Phase">Concept Phase</option>
+          <option value="Prototype">Prototype</option>
+          <option value="Patent Pending">Patent Pending</option>
+          <option value="Live">Live / Launch</option>
+        </select>
+      </div>
+      <div>
+        <label for="sort">Sort by</label>
+        <select id="sort">
+          <option value="top">Top rated</option>
+          <option value="new">Newest</option>
+        </select>
+      </div>
+    </form>
+
+    <p class="result-count" id="count" role="status" aria-live="polite"></p>
+    <div id="results" class="grid"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="community.html#about">About Circuitry</a></li>
+        <li><a href="community.html#ip">IP Guidelines</a></li>
+        <li><a href="community.html#rules">Community Rules</a></li>
+        <li><a href="community.html#contact">Contact</a></li>
+      </ul>
+      <p>&copy; 2026 Circuitry. A school project: all inventions and people shown are examples.</p>
+    </div>
+  </footer>
+
+  <script>
+    // stage = filter value; stageLabel = text shown on the card
+    const INVENTIONS = [
+      { id: 1, title: "NeuralGrip: Bionic Hand with Tactile Feedback", cat: "robotics", catLabel: "Robotics", stage: "Prototype", stageLabel: "Working Prototype", author: "Dr. Elena Rostova", upvotes: 1400, comments: 182, age: 2, seeking: false, img: "neuralgrip.svg", alt: "Illustration of a bionic hand" },
+      { id: 2, title: "SolarSkin: Transparent Photovoltaic Film", cat: "clean", catLabel: "Clean Tech", stage: "Patent Pending", stageLabel: "Patent Pending", author: "@green_tech_dev", upvotes: 342, comments: 45, age: 9, seeking: false, img: "solarskin.svg", alt: "Illustration of a transparent solar panel under the sun" },
+      { id: 3, title: "OpenVision AI: Wearable Spatial Navigation", cat: "ai", catLabel: "AI & Hardware", stage: "Concept Phase", stageLabel: "Concept Phase", author: "@alex_maker", upvotes: 512, comments: 89, age: 5, seeking: true, img: "openvision.svg", alt: "Illustration of smart glasses scanning the space ahead" },
+      { id: 4, title: "QuantumKey: Open-Source Encryption", cat: "software", catLabel: "Cybersecurity", stage: "Live", stageLabel: "Software Beta", author: "@cipher_lab", upvotes: 890, comments: 120, age: 14, seeking: false, img: "quantumkey.svg", alt: "Illustration of an encryption key made of bits" },
+      { id: 5, title: "AquaLoop: Home Greywater Recycler", cat: "clean", catLabel: "Clean Tech", stage: "Prototype", stageLabel: "Prototype", author: "@water_wise", upvotes: 276, comments: 31, age: 1, seeking: true, img: "aqualoop.svg", alt: "Illustration of a water droplet with a recycling loop" },
+      { id: 6, title: "MediScan Lite: Pocket Blood-Test Reader", cat: "biotech", catLabel: "Biotech", stage: "Concept Phase", stageLabel: "Concept Phase", author: "@bio_nina", upvotes: 198, comments: 27, age: 3, seeking: true, img: "mediscan.svg", alt: "Illustration of a handheld blood test reader" },
+      { id: 7, title: "FarmBot Mini: Desktop Seed Planter", cat: "robotics", catLabel: "Robotics", stage: "Prototype", stageLabel: "Prototype", author: "@field_lab", upvotes: 231, comments: 36, age: 6, seeking: true, img: "farmbot.svg", alt: "Illustration of a seedling with a small gear" },
+      { id: 8, title: "PulseBoard: Open Hardware Dev Board", cat: "hardware", catLabel: "Hardware", stage: "Patent Pending", stageLabel: "Patent Pending", author: "@chip_sam", upvotes: 305, comments: 52, age: 11, seeking: false, img: "pulseboard.svg", alt: "Illustration of a microcontroller board with pins" }
+    ];
+
+    const store = {
+      get(k) { try { return JSON.parse(localStorage.getItem(k)) || []; } catch (e) { return []; } },
+      set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } }
+    };
+    const fmt = n => n.toLocaleString("en-US");
+    let upvoted = store.get("circuitry-upvotes");
+    let saved = store.get("circuitry-saved");
+
+    const els = {
+      search: document.getElementById("search"),
+      category: document.getElementById("category"),
+      stage: document.getElementById("stage"),
+      sort: document.getElementById("sort"),
+      results: document.getElementById("results"),
+      count: document.getElementById("count")
+    };
+
+    function cardHTML(i) {
+      return `
+        <article class="card">
+          <img src="images/${i.img}" alt="${i.alt}" width="400" height="240" loading="lazy">
+          <div class="card-body">
+            <h2 style="font-size:1.1rem;margin:0">${i.title}</h2>
+            <div class="badges">
+              <span class="badge">${i.stageLabel}</span>
+              <span class="badge cat">${i.catLabel}</span>
+              ${i.seeking ? '<span class="badge seek">Seeking collaborators</span>' : ""}
+            </div>
+            <p class="meta">By ${i.author}</p>
+            <div class="card-actions">
+              <button type="button" class="btn btn-outline" data-act="up" data-id="${i.id}" aria-pressed="false">&#9650; Upvote <span class="count">${fmt(i.upvotes)}</span></button>
+              <a class="btn btn-outline" href="community.html#feedback">${i.comments} comments</a>
+              <button type="button" class="btn btn-outline" data-act="save" data-id="${i.id}" aria-pressed="false"><span class="label">Save</span></button>
+            </div>
+          </div>
+        </article>`;
+    }
+
+    function render() {
+      const q = els.search.value.trim().toLowerCase();
+      let list = INVENTIONS.filter(i => {
+        const text = (i.title + " " + i.catLabel + " " + i.author + " " + i.stageLabel).toLowerCase();
+        return (!q || text.includes(q))
+          && (els.category.value === "all" || i.cat === els.category.value)
+          && (els.stage.value === "all" || i.stage === els.stage.value);
+      });
+      list.sort(els.sort.value === "new" ? (a, b) => a.age - b.age : (a, b) => b.upvotes - a.upvotes);
+
+      els.count.textContent = list.length === 1 ? "1 invention found" : list.length + " inventions found";
+      els.results.innerHTML = list.length
+        ? list.map(cardHTML).join("")
+        : '<p class="empty" style="grid-column:1/-1">Nothing matches your search. Try fewer words or reset the filters.</p>';
+      updateButtons();
+    }
+
+    function updateButtons() {
+      document.querySelectorAll("button[data-act]").forEach(b => {
+        const id = Number(b.dataset.id);
+        const inv = INVENTIONS.find(i => i.id === id);
+        if (b.dataset.act === "up") {
+          const on = upvoted.includes(id);
+          b.setAttribute("aria-pressed", on);
+          b.classList.toggle("on", on);
+          b.querySelector(".count").textContent = fmt(inv.upvotes + (on ? 1 : 0));
+        } else {
+          const on = saved.includes(id);
+          b.setAttribute("aria-pressed", on);
+          b.classList.toggle("on", on);
+          b.querySelector(".label").textContent = on ? "Saved" : "Save";
+        }
+      });
+    }
+
+    els.results.addEventListener("click", e => {
+      const b = e.target.closest("button[data-act]");
+      if (!b) return;
+      const id = Number(b.dataset.id);
+      const isUp = b.dataset.act === "up";
+      const list = isUp ? upvoted : saved;
+      const at = list.indexOf(id);
+      if (at === -1) list.push(id); else list.splice(at, 1);
+      store.set(isUp ? "circuitry-upvotes" : "circuitry-saved", list);
+      updateButtons();
+    });
+
+    ["input", "change"].forEach(ev => document.getElementById("filters").addEventListener(ev, render));
+
+    // Allow links like explore.html?cat=robotics
+    const params = new URLSearchParams(location.search);
+    if (params.get("cat")) els.category.value = params.get("cat");
+    render();
+  </script>
+</body>
+</html>

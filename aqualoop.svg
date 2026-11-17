@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-label="Water droplet with a recycling loop">
+<rect width="400" height="240" fill="#0B5D7A"/>
+<path d="M200 36 C200 36 140 110 140 148 a60 60 0 0 0 120 0 C260 110 200 36 200 36 Z" fill="#fff" fill-opacity=".2" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<g fill="none" stroke="#FACC15" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M178 152 a26 26 0 0 1 44 -16"/><path d="M222 148 a26 26 0 0 1 -44 16"/></g>
+<g fill="#FACC15"><polygon points="226,126 224,142 210,136"/><polygon points="174,174 176,158 190,164"/></g>
+</svg>

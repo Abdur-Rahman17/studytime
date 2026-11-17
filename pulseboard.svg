@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-label="Microcontroller board with pins">
+<rect width="400" height="240" fill="#1F2937"/>
+<rect x="140" y="70" width="120" height="100" rx="10" fill="#0B1220" stroke="#FACC15" stroke-width="6"/>
+<path d="M166 70 V46 M200 70 V46 M234 70 V46 M166 170 V194 M200 170 V194 M234 170 V194 M140 98 H116 M140 120 H116 M140 142 H116 M260 98 H284 M260 120 H284 M260 142 H284" fill="none" stroke="#FACC15" stroke-width="6" stroke-linecap="round"/>
+<path d="M178 120 H200 L208 98 L220 142 L228 120" fill="none" stroke="#22D3EE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Submit an invention or idea – Circuitry</title>
+  <meta name="description" content="Share a concept or a working prototype with the Circuitry community.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html"><img src="images/logo.svg" alt="" width="40" height="40"><span>Circuitry</span></a>
+      <nav class="main-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explore.html">Explore</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="community.html#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="explore.html#search">Search</a>
+        <a class="btn btn-primary" href="submit.html" aria-current="page">+ Submit Idea</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <div class="page-head">
+      <h1>Submit an invention or idea</h1>
+      <p>Tell the community what you are working on. Fields marked with * are required.</p>
+    </div>
+
+    <div id="confirmation" class="success" role="status" tabindex="-1" hidden></div>
+
+    <div class="two-col">
+      <form id="submitForm" class="panel" novalidate>
+        <fieldset>
+          <legend>What are you submitting? *</legend>
+          <div class="radio-cards">
+            <label><input type="radio" name="type" value="Idea / concept" checked> <span>Idea / concept<small>An early idea you want feedback on</small></span></label>
+            <label><input type="radio" name="type" value="Working prototype / patent"> <span>Working prototype / patent<small>Something built, or with a patent filed</small></span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="title">Invention title *</label>
+          <input type="text" id="title" name="title" maxlength="80" aria-describedby="title-err" autocomplete="off">
+          <p class="error" id="title-err"></p>
+        </div>
+
+        <div class="field">
+          <label for="category">Category *</label>
+          <select id="category" name="category" aria-describedby="category-err">
+            <option value="">Choose a category</option>
+            <option>AI</option>
+            <option>Robotics</option>
+            <option>Hardware</option>
+            <option>Biotech</option>
+            <option>Clean Tech</option>
+            <option>Software</option>
+          </select>
+          <p class="error" id="category-err"></p>
+        </div>
+
+        <div class="field">
+          <label for="stage">Stage *</label>
+          <select id="stage" name="stage" aria-describedby="stage-err">
+            <option value="">Choose a stage</option>
+            <option>Concept Phase</option>
+            <option>Prototype</option>
+            <option>Patent Pending</option>
+            <option>Live / Launch</option>
+          </select>
+          <p class="error" id="stage-err"></p>
+        </div>
+
+        <div class="field">
+          <label for="summary">Describe your idea *</label>
+          <p class="hint" id="summary-hint">What problem does it solve and how does it work? At least 40 characters.</p>
+          <textarea id="summary" name="summary" maxlength="600" aria-describedby="summary-hint summary-err summary-count"></textarea>
+          <p class="counter" id="summary-count" aria-live="off">0 / 600</p>
+          <p class="error" id="summary-err"></p>
+        </div>
+
+        <!-- Only shown for the prototype / patent option -->
+        <div id="protoFields" hidden>
+          <div class="field">
+            <label for="link">Link to demo, photos or patent listing *</label>
+            <input type="url" id="link" name="link" placeholder="https://" aria-describedby="link-err">
+            <p class="error" id="link-err"></p>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>Collaboration</legend>
+          <label class="check" for="seeking"><input type="checkbox" id="seeking" name="seeking"> I am looking for co-founders or developers</label>
+          <div id="rolesField" hidden>
+            <label for="roles">Which roles do you need? *</label>
+            <input type="text" id="roles" name="roles" placeholder="e.g. Python developer, mechanical engineer" aria-describedby="roles-err">
+            <p class="error" id="roles-err"></p>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Submit invention</button>
+          <button type="button" class="btn btn-outline" id="saveDraft">Save as draft</button>
+          <button type="reset" class="btn btn-outline">Clear form</button>
+        </div>
+      </form>
+
+      <aside class="panel" aria-labelledby="tips-title">
+        <h2 id="tips-title">Before you post</h2>
+        <ul class="tips">
+          <li>Use a clear title that says what it is, not just a clever name.</li>
+          <li>Keep patent-sensitive details private until you have talked to an adviser. See our <a href="community.html#ip">IP &amp; patent guide</a>.</li>
+          <li>Read the <a href="community.html#rules">submission rules</a> so your post is approved quickly.</li>
+          <li>Pick the stage honestly. People give better feedback when they know how far along you are.</li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="community.html#about">About Circuitry</a></li>
+        <li><a href="community.html#ip">IP Guidelines</a></li>
+        <li><a href="community.html#rules">Community Rules</a></li>
+        <li><a href="community.html#contact">Contact</a></li>
+      </ul>
+      <p>&copy; 2026 Circuitry. A school project: nothing you type here is sent anywhere.</p>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById("submitForm");
+    const confirmation = document.getElementById("confirmation");
+    const protoFields = document.getElementById("protoFields");
+    const rolesField = document.getElementById("rolesField");
+    const summary = document.getElementById("summary");
+    const counter = document.getElementById("summary-count");
+
+    const typeValue = () => form.elements.type.value;
+    const isProto = () => typeValue() === "Working prototype / patent";
+
+    // Show / hide the extra fields
+    function syncFields() {
+      protoFields.hidden = !isProto();
+      rolesField.hidden = !form.elements.seeking.checked;
+    }
+    form.addEventListener("change", syncFields);
+    form.addEventListener("reset", () => {
+      setTimeout(() => { syncFields(); counter.textContent = "0 / 600"; clearErrors(); }, 0);
+    });
+    summary.addEventListener("input", () => { counter.textContent = summary.value.length + " / 600"; });
+
+    function setError(id, message) {
+      const input = document.getElementById(id);
+      document.getElementById(id + "-err").textContent = message;
+      input.classList.toggle("invalid", Boolean(message));
+      input.setAttribute("aria-invalid", message ? "true" : "false");
+    }
+    function clearErrors() {
+      ["title", "category", "stage", "summary", "link", "roles"].forEach(id => setError(id, ""));
+    }
+
+    // Returns the first field with a problem (or null if everything is fine)
+    function validate() {
+      clearErrors();
+      let first = null;
+      const fail = (id, msg) => { setError(id, msg); if (!first) first = document.getElementById(id); };
+
+      const title = form.elements.title.value.trim();
+      if (title.length < 5) fail("title", "Please enter a title of at least 5 characters.");
+      if (!form.elements.category.value) fail("category", "Please choose a category.");
+      if (!form.elements.stage.value) fail("stage", "Please choose a stage.");
+      if (summary.value.trim().length < 40) fail("summary", "Please describe your idea in at least 40 characters.");
+
+      if (isProto()) {
+        const link = form.elements.link.value.trim();
+        let ok = false;
+        try { ok = /^https?:$/.test(new URL(link).protocol); } catch (e) { ok = false; }
+        if (!ok) fail("link", "Please enter a full link starting with http:// or https://");
+      }
+      if (form.elements.seeking.checked && form.elements.roles.value.trim().length < 3) {
+        fail("roles", "Please say which roles you are looking for.");
+      }
+      return first;
+    }
+
+    function readForm() {
+      return {
+        type: typeValue(),
+        title: form.elements.title.value.trim(),
+        category: form.elements.category.value,
+        stage: form.elements.stage.value,
+        summary: summary.value.trim(),
+        link: isProto() ? form.elements.link.value.trim() : "",
+        seeking: form.elements.seeking.checked,
+        roles: form.elements.seeking.checked ? form.elements.roles.value.trim() : "",
+        savedAt: new Date().toISOString()
+      };
+    }
+
+    function saveToStorage(key, item) {
+      try {
+        const all = JSON.parse(localStorage.getItem(key)) || [];
+        all.push(item);
+        localStorage.setItem(key, JSON.stringify(all));
+      } catch (e) { /* storage blocked: nothing to do */ }
+    }
+
+    function showMessage(html) {
+      confirmation.innerHTML = html;
+      confirmation.hidden = false;
+      confirmation.focus();
+      confirmation.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    const esc = s => s.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const firstBad = validate();
+      if (firstBad) { confirmation.hidden = true; firstBad.focus(); return; }
+      const data = readForm();
+      saveToStorage("circuitry-submissions", data);
+      showMessage(`
+        <h2>Thank you, your invention was submitted</h2>
+        <p><strong>${esc(data.title)}</strong> (${esc(data.category)}, ${esc(data.stage)})</p>
+        <p>Type: ${esc(data.type)}${data.seeking ? " &middot; Looking for: " + esc(data.roles) : ""}</p>
+        <p>In the real site it would now be reviewed by a moderator. <a href="explore.html">Browse other inventions</a> while you wait.</p>`);
+      form.reset();
+    });
+
+    document.getElementById("saveDraft").addEventListener("click", () => {
+      const title = form.elements.title.value.trim();
+      if (!title) { setError("title", "Add a title so your draft is easy to find."); form.elements.title.focus(); return; }
+      setError("title", "");
+      saveToStorage("circuitry-drafts", readForm());
+      showMessage("<h2>Draft saved</h2><p>Your draft &ldquo;" + esc(title) + "&rdquo; was saved in this browser.</p>");
+    });
+
+    syncFields();
+  </script>
+</body>
+</html>
